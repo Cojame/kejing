@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text one</title>
+</head>
+<body>
+<!--test one
+<!--<label>今天的天气：<input type="text" id="wea"></label>
+<br/>
+<button id="button">确认输入</button>
+<p>你输入的内容是：<span id="content"></span></p>
+-->
+<!--test two-->
+//sort()和reverse()函数。
+<h3>城市污染程度列表</h3>
+<p id="num"></p>
+<ul id="list">
+</ul>
+<ul id="list1">
+
+</ul>
+</body>
+<script>
+    /*var content=document.getElementById('content');
+    var weather=document.getElementById('wea');
+    var button=document.getElementById('button');
+    function insert() {
+      content.innerHTML=weather.value;
+    }
+    button.onclick=insert;*/
+var aqidata=[
+    ["北京",90],
+    ["广州",70],
+    ["上海",80],
+    ["深圳",60],
+    ["珠海",65]
+];
+//var list=document.getElementById('list');
+var list1=document.getElementById('list1');
+var length=aqidata.length;
+var newnode;
+/*function select() {
+    for(var i=0;i<length;i++)
+    {
+        if(aqidata[i][1]>60) {
+            newnode = document.createElement('li');
+            newnode.innerHTML= aqidata[i][0]+": "+aqidata[i][1];
+            list.appendChild(newnode);
+        }
+    }
+}*/
+var num1=new Array();
+function aaa()
+{
+    for (var j = 0; j < length; j++) {
+        num1[j] = aqidata[j][1];
+    }
+    num1.sort(function compare(x,y) {
+        if(x<y)
+            return -1;
+        else if(x>y)
+            return 1;
+        else return 0;
+    });
+    //num1.reverse();
+    for(var m=0;m<length;m++)
+    {
+        for (var k = 0; k < length; k++)
+        {
+            if(aqidata[k][1]==num1[m])
+            {
+                newnode = document.createElement('li');
+                newnode.innerHTML =aqidata[k][0]+": "+aqidata[k][1];
+                list1.appendChild(newnode);
+            }
+        }
+    }
+}
+window.onload=aaa;
+</script>
+</html>
